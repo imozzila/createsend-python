@@ -99,8 +99,10 @@ class VerifiedHTTPSConnection(HTTPSConnection):
             self.sock = sock
             self._tunnel()
 
-        cert_path = os.path.join(os.path.dirname(__file__), 'cacert.pem')
-
+        #cert_path = os.path.join(os.path.dirname(__file__), 'cacert.pem')
+        cert_path = os.path.join(os.getcwd(), 'cacert.pem')
+        print('test')
+        
         self.sock = ssl.wrap_socket(
             sock,
             self.key_file,
@@ -151,7 +153,7 @@ def validate_consent_to_track(user_input):
 def get_faker(expected_url, filename, status=None, body=None):
 
     class Faker(object):
-        """Represents a fake web request, including the expected URL, an open 
+        """Represents a fake web request, including the expected URL, an open
         function which reads the expected response from a fixture file, and the
         expected response status code."""
 
