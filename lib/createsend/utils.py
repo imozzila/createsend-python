@@ -101,8 +101,7 @@ class VerifiedHTTPSConnection(HTTPSConnection):
 
         #cert_path = os.path.join(os.path.dirname(__file__), 'cacert.pem')
         cert_path = os.path.join(os.getcwd(), 'cacert.pem')
-        print('test')
-        
+
         self.sock = ssl.wrap_socket(
             sock,
             self.key_file,
